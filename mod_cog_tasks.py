@@ -1,5 +1,5 @@
 import numpy as np
-import gym
+import gymnasium as gym
 import neurogym as ngym
 from neurogym import spaces
 from neurogym.wrappers.block import ScheduleEnvs
@@ -184,7 +184,7 @@ class _Reach(EnvWithAdditions):
                 else:
                     reward += self.rewards['fail']
 
-        return self.ob_now, reward, False, {'new_trial': new_trial, 'gt': gt}
+        return self.ob_now, reward, False, False, {'new_trial': new_trial, 'gt': gt}
 
 #2AFC family
 class _DMFamily(EnvWithAdditions):
@@ -345,7 +345,7 @@ class _DMFamily(EnvWithAdditions):
                 else:
                     reward = self.rewards['fail']
 
-        return ob, reward, False, {'new_trial': new_trial, 'gt': gt}
+        return ob, reward, False, False, {'new_trial': new_trial, 'gt': gt}
 
 class _DelayMatch1DResponse(EnvWithAdditions):
     r"""Delay match-to-sample or category task.
@@ -484,7 +484,7 @@ class _DelayMatch1DResponse(EnvWithAdditions):
                 else:
                     reward = self.rewards['fail']
 
-        return ob, reward, False, {'new_trial': new_trial, 'gt': gt}
+        return ob, reward, False, False, {'new_trial': new_trial, 'gt': gt}
 
 
 #First family of tasks (Go family)
